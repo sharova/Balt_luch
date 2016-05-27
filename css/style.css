@@ -53,6 +53,15 @@ h1, h2, h3, h4 {margin: 0;}
 .row:after ,.clearfix:after 
 {content:""; display: block; clear: both;}
 
+.main_borders {
+  background-image: url(../img/font_borders.gif);
+  background-repeat: repeat-y;
+}
+.main_border-right {
+  background-image: url(../img/font_border_right.gif);
+  background-repeat: repeat-y;
+}
+
 /*Настройка линий*/
 .blackline_top {
   border-top: 4px solid #000;
@@ -80,13 +89,13 @@ h3.main_title {
   padding: 9px 0;
   margin-bottom: 8px;
 }
-.paperdate_title, .newsdate_title {
+.news-lent__papertitle, .publication__papertitle, .newsdate_title {
   font-size: 13px;
   color: #000;
   position: relative;
 }
 
-.paperdate_title:before {
+.news-lent__papertitle:before {
   content: '';
   width: 20px;
   height: 20px;
@@ -109,16 +118,16 @@ h3.main_title {
   background-position: 0px -40px;
 }
 
-.text_big{
+p {
   font-size: 13px;
   color: #484848;
+  margin: 14px 0;
 }
-.no_margin_top {
-  margin-top: 0;
+.comment p {
+  color: #4a4a4a;
+  font-size: 12px;
 }
-.no_margin_bottom {
-  margin-bottom: 0;
-}
+
 
 .publ_title {
 font-family: 'Times New Roman', Times, serif;
@@ -135,7 +144,7 @@ header {
   padding-top: 0;
   margin-top: 0;
 }
-.header_img {
+.header__img {
   height: 190px;
 }
 .header_main {
@@ -180,23 +189,24 @@ header {
 /*Логотип и поиск по сайту*/
 
 
-.logo_block {
+.logo {
   height: 110px;
 }
-.logo 
+.logo__img 
 {margin: 16px 0 8px 0;}
 
-.description {
+.logo__describtion-text {
   color: #454545;
   font-size: 11.6px;
   line-height: 13px;
   margin: 0;
 }
-.description:first-child {
+.logo__describtion-text:first-child {
   margin-top: 16px;
 }
-.site-search {height: 84px; position: relative;}
-.search {
+.logo__describtion {height: 84px; position: relative;}
+
+.header__searchform-input {
   height: 26px;
   width: 415px;
   border: 1px solid #aeaeae;
@@ -206,22 +216,30 @@ header {
   bottom: 21px;
   padding-left: 5px;
 }
-.icon-search {
+.header__searchform-submit {
   width: 20px;
   height: 20px;
+  border: none;
   display: block;
   background-image: url(../img/icons.png);
   background-position: -22px -80px;
-  float: right;
+  position: absolute;
+  right: 0;
+  top: 34px;
   margin: 4px 8px 0 0;
+  text-indent: -3000px;
+  background-color: #fff;
+  cursor: pointer;
 }
-.carousel{
+
+/*Слайдер*/
+.news-lent__carousel{
   height: 473px;
 }
-.carousel_item {
+.news-lent__carousel-item {
   position: relative;
 }
-.carousel_item:before {
+.news-lent__carousel-item:before {
   content: 'Скоро открытие летнего сезона';
   color: #000;
   font-size: 22px;
@@ -234,7 +252,7 @@ header {
   background: rgba(255,255,255,0.8);
   bottom: 0;
 }
-.calousel_crumbs {
+.news-lent__carousel-crumbs {
   margin-top: 10px;
   padding-left: 190px;
 }
@@ -249,27 +267,59 @@ header {
 
 /*Меню*/
 
-.top-link {
+.header__mainmenu {
+  height: 23px;
+  display: table;
+  width: 959px;
+}
+.header__mainmenu ul {
+  list-style: none;
+  display: table-row;
+}
+.header__mainmenu-list {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  white-space: nowrap;
+  position: relative;
+  padding: 0 5px;
+}
+.header__mainmenu-list:first-child {text-align: left;}
+.header__mainmenu-list:last-child {text-align: right;}
+
+.header__mainmenu-list:after {
+    content: '|';
+    color: #0a7aa5;
+    position: absolute;
+    font-size: 15px;
+    right: 0;
+}
+nav.header__mainmenu-publ .header__mainmenu-list:after {
+    content: '|';
+    color: #ff0066;
+    position: absolute;
+    font-size: 15px;
+    right: 0;
+}
+.header__mainmenu-list:last-child:after {
+    content: '';
+    position: absolute;
+    font-size: 15px;
+    right: 0;
+}
+
+.header__mainmenu-link {
   color: #0a7aa5;
   text-decoration: underline;
   font-size: 15px;
 }
 
-.top-link-active {color: #ff0066;}
-
-.top-menu {
-  height: 23px;
-}
-.menu-list {
-  padding: 0 13px;
-  border-right: 1px solid #0a7aa5;
-}
-.menu-list:first-child {padding-left: 0;}
-.menu-list:last-child {border-right: none; padding-right: 0;}
+.header__mainmenu-link-active {color: #ff0066;}
+.header__mainmenu-link-active-grey {color: #646464;}
 
 /*Анонсы, дата и вход на сайт*/
 
-.announce {
+.header__pinkline-announce {
   font-size: 22px;
   line-height: 30px;
   color: #fff;
@@ -368,13 +418,6 @@ header {
 
 /*Новости*/
 
-.borders {
-  border-left: 1px solid #acacac;
-  border-right: 1px solid #acacac;
-}
-.border_left {
-  border-left: 1px solid #acacac;
-}
 .news_text {
   color: #312d2d;
   font-size: 12px;
